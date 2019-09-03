@@ -12,13 +12,10 @@ namespace Moonglade.Notification.EmailProcessor
             builder.ConfigureWebJobs(b =>
             {
                 b.AddAzureStorageCoreServices();
+                b.AddAzureStorage();
             }).ConfigureLogging((context, b) =>
             {
                 b.AddConsole();
-            }).ConfigureWebJobs(b =>
-            {
-                b.AddAzureStorageCoreServices();
-                b.AddAzureStorage();
             });
             var host = builder.Build();
             using (host)
